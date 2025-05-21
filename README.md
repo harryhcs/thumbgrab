@@ -1,24 +1,48 @@
-# RedwoodSDK Minimal Starter
+# ThumbGrab – YouTube Thumbnail Grabber
 
-This starter gives you a bare-bones RedwoodSDK project.
+ThumbGrab is a tiny edge-native web app that lets you quickly grab the full-resolution thumbnail of any YouTube video. Paste a video URL, hit **Get Thumbnail**, and instantly receive a downloadable image.
 
-Create your new project:
+## How it works
 
-```shell
-npx degit redwoodjs/sdk/starters/minimal my-project-name
-cd my-project-name
-pnpm install
+1. The client (React + Tailwind) collects a YouTube URL.
+2. It calls the RedwoodSDK server function `getYoutubeThumbnail`, which:
+   - Extracts the video ID from the URL.
+   - Builds the high-resolution thumbnail URL (e.g. `https://img.youtube.com/vi/<id>/maxresdefault.jpg`).
+3. The client renders the thumbnail and lets you right-click → **Save Image**.
+
+Everything runs on Cloudflare Workers via **RedwoodSDK**, so there are no cold starts and no origin server to manage.
+
+## Tech stack
+
+- **RedwoodSDK** – full-stack framework on Cloudflare Workers
+- **React + Vite** – UI & bundling
+- **Tailwind CSS** – styling
+- **Cloudflare Images** – hosting the app logo
+
+## Local development
+
+```bash
+pnpm install   # install deps
+pnpm dev       # start Vite + RedwoodSDK dev server
 ```
 
-## Running the dev server
+Open the URL printed in the terminal (usually `http://localhost:5173/`) and start grabbing thumbnails.
 
-```shell
-pnpm dev
+## Deployment
+
+Refer to the official RedwoodSDK docs for deploying to Cloudflare Pages/Workers:
+https://docs.rwsdk.com
+
+A production build generally looks like:
+
+```bash
+pnpm deploy  # pushes to Cloudflare (requires config)
 ```
 
-Point your browser to the URL displayed in the terminal (e.g. `http://localhost:5173/`). You should see a "Hello World" message in your browser.
+## Contributing
 
-## Further Reading
+PRs and issues are welcome! Clone the repo, create a feature branch, and open a pull request.
 
-- [RedwoodSDK Documentation](https://docs.rwsdk.com/)
-- [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers)
+## License
+
+MIT © 2024 Herman Stander

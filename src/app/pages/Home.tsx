@@ -37,6 +37,8 @@ export function Home() {
       <hr className="mt-10 w-full border-pink-800" />
       <footer className="w-full text-center py-4 bg-black text-pink-400 font-mono text-sm tracking-widest opacity-80 border-t border-pink-800">
         built with <a href="https://rwdk.com" target="_blank" rel="noopener noreferrer" className="text-green-400 font-bold underline hover:text-pink-400 transition-colors">RedwoodSDK</a>
+        <span className="mx-2 text-pink-700">&bull;</span>
+        <a href="https://github.com/harryhcs/thumbgrab" target="_blank" rel="noopener noreferrer" className="text-green-400 font-bold underline hover:text-pink-400 transition-colors">GitHub</a>
       </footer>
     </div>
   );
